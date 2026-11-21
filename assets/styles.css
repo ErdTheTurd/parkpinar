@@ -1,0 +1,520 @@
+/* Parkpin AR — parking-garage signage, concrete, painted stall lines. */
+
+@font-face {
+  font-family: "Overpass";
+  src: url("fonts/overpass-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Overpass";
+  src: url("fonts/overpass-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Overpass";
+  src: url("fonts/overpass-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Barlow Condensed";
+  src: url("fonts/barlow-condensed-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light dark;
+  --concrete: #c5c0b4;
+  --concrete-deep: #b7b2a6;
+  --ink: #1a1916;
+  --muted: #5a564d;
+  --line: rgba(26, 25, 22, 0.16);
+  --paint: #f0c400;
+  --paint-ink: #1a1916;
+  --sign: #161513;
+  --sign-ink: #f4efe3;
+  --panel: #d3cec3;
+  --max: 1080px;
+  --pad: clamp(1.2rem, 4vw, 2.4rem);
+  --font: "Overpass", "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+  --display: "Barlow Condensed", "Avenir Next Condensed", "Arial Narrow", "Helvetica Neue", sans-serif;
+  --theme-color: #c5c0b4;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --concrete: #2b2925;
+    --concrete-deep: #23211e;
+    --ink: #f0ece3;
+    --muted: #b3ada0;
+    --line: rgba(240, 236, 227, 0.14);
+    --paint: #e2b400;
+    --paint-ink: #161513;
+    --sign: #0f0e0c;
+    --sign-ink: #f0ece3;
+    --panel: #35322c;
+    --theme-color: #2b2925;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background-color: var(--concrete);
+  background-image: url("concrete.png");
+  background-repeat: repeat;
+  background-size: 192px 192px;
+  font: 17px/1.55 var(--font);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+
+main {
+  background-image: linear-gradient(90deg, var(--paint) 0 10px, transparent 10px);
+  background-repeat: no-repeat;
+  background-size: 10px 100%;
+  background-position: 0 0;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+a {
+  color: var(--ink);
+  text-underline-offset: 0.16em;
+}
+
+a:hover {
+  color: var(--ink);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--paint);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+}
+
+.skip:focus {
+  left: var(--pad);
+  top: 0.75rem;
+  z-index: 100;
+  background: var(--sign);
+  color: var(--sign-ink);
+  padding: 0.5rem 0.75rem;
+  text-decoration: none;
+}
+
+.wrap {
+  width: min(100% - 2 * var(--pad), var(--max));
+  margin-inline: auto;
+  padding-left: 1rem;
+}
+
+/* Header — wall-mounted wayfinding sign */
+
+.site-header {
+  background: var(--sign);
+  color: var(--sign-ink);
+  border-bottom: 8px solid var(--paint);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 0 0.75rem;
+  width: min(100% - 2 * var(--pad), var(--max));
+  margin-inline: auto;
+  padding-left: calc(var(--pad) + 1rem);
+  padding-right: var(--pad);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--sign-ink);
+  text-decoration: none;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.45rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.brand:hover {
+  color: var(--sign-ink);
+}
+
+.brand-mark {
+  flex: none;
+  width: 1.7rem;
+  height: 1.7rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.95rem;
+}
+
+.nav-links a {
+  color: rgba(244, 239, 227, 0.72);
+  text-decoration: none;
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+  color: var(--sign-ink);
+}
+
+/* Hero */
+
+.hero {
+  padding: clamp(2.5rem, 7vw, 4.5rem) 0 clamp(2rem, 5vw, 3.25rem);
+}
+
+.hero-inner {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: center;
+}
+
+@media (min-width: 880px) {
+  .hero-inner {
+    grid-template-columns: 1.05fr 0.95fr;
+  }
+}
+
+
+.wordmark {
+  margin: 0 0 0.9rem;
+  font-family: var(--display);
+  font-size: clamp(3.2rem, 9vw, 5.6rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0 0 0.9rem;
+  font-family: var(--font);
+  font-size: clamp(1.45rem, 3vw, 1.85rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  max-width: 18ch;
+}
+
+.lede {
+  margin: 0 0 1.4rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 38ch;
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem 1.15rem;
+}
+
+.soon {
+  display: inline-block;
+  margin: 0;
+  padding: 0.55rem 0.85rem 0.45rem;
+  border: 2px solid var(--ink);
+  background: var(--sign);
+  color: var(--sign-ink);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.device-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .soon {
+    background: var(--paint);
+    color: var(--paint-ink);
+    border-color: var(--paint);
+  }
+}
+
+/* Phone frames around real simulator screenshots */
+
+.hero-figure {
+  margin: 0;
+  justify-self: center;
+  width: min(100%, 20.5rem);
+}
+
+.phone {
+  margin: 0;
+}
+
+.phone-frame {
+  position: relative;
+  background: #111110;
+  border-radius: 2.35rem;
+  padding: 0.62rem;
+  box-shadow:
+    0 0 0 1px #2c2b28,
+    0 22px 40px rgba(26, 25, 22, 0.22);
+}
+
+.phone-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1.8rem;
+  background: #111;
+}
+
+.caption {
+  margin: 0.85rem 0 0;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+}
+
+
+/* Features — a painted list, not a card grid */
+
+.features {
+  padding: 0 0 clamp(3rem, 7vw, 4.5rem);
+}
+
+.feature-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 6px solid var(--paint);
+}
+
+.feature-list li {
+  padding: 1.1rem 0 1.15rem;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 0.3rem 1.5rem;
+}
+
+@media (min-width: 720px) {
+  .feature-list li {
+    grid-template-columns: 13rem 1fr;
+    align-items: baseline;
+  }
+}
+
+.feature-list h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.feature-list p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  max-width: 48ch;
+}
+
+/* Privacy preview + interior pages */
+
+.privacy-band {
+  padding: 0 0 clamp(3rem, 7vw, 4.25rem);
+}
+
+.privacy-band h2 {
+  margin: 0 0 0.45rem;
+  font-family: var(--display);
+  font-size: clamp(1.7rem, 3.4vw, 2.15rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.privacy-band p {
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+  max-width: 48ch;
+}
+
+.privacy-band a {
+  font-weight: 600;
+}
+
+.page {
+  padding: clamp(2.4rem, 6vw, 3.6rem) 0 clamp(3rem, 7vw, 4.5rem);
+}
+
+.page-narrow {
+  width: min(100% - 2 * var(--pad), 42rem);
+  margin-inline: auto;
+  padding-left: 1rem;
+}
+
+.page h1 {
+  margin: 0 0 0.4rem;
+  font-family: var(--display);
+  font-size: clamp(2.4rem, 6vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 0.95;
+}
+
+.page h2 {
+  margin: 2rem 0 0.5rem;
+  font-family: var(--display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.page .lede,
+.updated {
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+}
+
+.page p {
+  margin: 0 0 0.9rem;
+}
+
+.page p:last-child {
+  margin-bottom: 0;
+}
+
+/* Footer — stall end line */
+
+.site-footer {
+  border-top: 8px solid var(--paint);
+  background: var(--sign);
+  color: rgba(244, 239, 227, 0.72);
+  font-size: 0.92rem;
+  padding: 1.35rem 0 1.6rem;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+}
+
+.footer-inner p {
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem 1.15rem;
+}
+
+.footer-links a {
+  color: rgba(244, 239, 227, 0.72);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--sign-ink);
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 16px;
+  }
+
+  main {
+    background-size: 7px 100%;
+  }
+
+  .nav {
+    padding-left: calc(var(--pad) + 0.6rem);
+  }
+
+  .wrap,
+  .page-narrow {
+    padding-left: 0.6rem;
+  }
+
+  .nav-links {
+    gap: 0.85rem;
+  }
+
+  .wordmark {
+    font-size: clamp(2.6rem, 16vw, 4rem);
+  }
+
+  .hero-figure {
+    width: min(100%, 16.5rem);
+  }
+}
