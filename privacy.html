@@ -3,33 +3,36 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Privacy information for Parkpin AR. Location and camera are used on your iPhone. Pins are saved on the device. There is no account and no analytics.">
-  <meta name="theme-color" content="#f3f0e8" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#101211" media="(prefers-color-scheme: dark)">
   <title>Privacy — Parkpin AR</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Privacy information for Parkpin AR. Location and camera are used on your iPhone. Pins are saved on the device. There is no account and no analytics.">
+  <meta name="theme-color" content="#c5c0b4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#2b2925" media="(prefers-color-scheme: dark)">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+
   <header class="site-header">
-    <a class="wordmark" href="index.html">
-      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
-        <rect width="64" height="64" rx="14" fill="currentColor"/>
-        <path d="M32 14c-7.2 0-13 5.6-13 12.7 0 9.4 13 23.3 13 23.3s13-13.9 13-23.3C45 19.6 39.2 14 32 14zm0 17.4a4.7 4.7 0 1 1 0-9.4 4.7 4.7 0 0 1 0 9.4z" fill="var(--bg)"/>
-      </svg>
-      Parkpin AR
-    </a>
     <nav class="nav" aria-label="Primary">
-      <a href="index.html">Home</a>
-      <a href="privacy.html" aria-current="page">Privacy</a>
+      <a class="brand" href="./">
+        <img class="brand-mark" src="assets/favicon.svg" width="28" height="28" alt="">
+        <span>Parkpin AR</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="./">Home</a></li>
+        <li><a href="privacy.html" aria-current="page">Privacy</a></li>
+      </ul>
     </nav>
   </header>
 
-  <main class="page wrap">
-    <h1>Privacy</h1>
-    <p class="updated">Last updated November 20, 2026</p>
+  <main id="main" class="page">
+    <article class="page-narrow">
+      <h1>Privacy</h1>
+      <p class="updated">Last updated November 20, 2026</p>
 
-    <article class="prose">
       <p>Parkpin AR is a local iPhone app. It does not have an account system, and it does not use a server. This page describes what the app uses on your device. This website does not use cookies, analytics, or other trackers.</p>
 
       <h2>Location</h2>
@@ -49,10 +52,12 @@
   </main>
 
   <footer class="site-footer">
-    <p>Coming soon to iPhone.</p>
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <span>Contact info coming soon</span>
+    <div class="wrap footer-inner">
+      <p>© 2026 Edward Dunn. Parkpin AR for iPhone.</p>
+      <div class="footer-links">
+        <a href="./">Home</a>
+        <span>Contact info coming soon</span>
+      </div>
     </div>
   </footer>
 </body>

@@ -3,112 +3,120 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Parkpin AR pins your parking spot on your iPhone and guides you back with AR arrows and live distance. Coming soon to iPhone.">
-  <meta name="theme-color" content="#f3f0e8" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#101211" media="(prefers-color-scheme: dark)">
-  <title>Parkpin AR</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
+  <title>Parkpin AR — pin your parking spot, then walk back to the car</title>
+  <meta name="description" content="Parkpin AR saves a pin on your iPhone when you park, then guides you back with AR arrows and a live distance. A 2D compass is used when AR is not available. Coming soon to iPhone.">
+  <meta name="theme-color" content="#c5c0b4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#2b2925" media="(prefers-color-scheme: dark)">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Parkpin AR">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Parkpin AR — pin your parking spot, then walk back to the car">
+  <meta property="og:description" content="Save a pin when you park, then follow AR arrows and a live distance back to the car. Coming soon to iPhone.">
+  <meta property="og:image" content="assets/favicon.svg">
+  <meta property="og:image:alt" content="Parkpin AR mark">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Parkpin AR — pin your parking spot, then walk back to the car">
+  <meta name="twitter:description" content="Save a pin when you park, then follow AR arrows and a live distance back to the car. Coming soon to iPhone.">
+  <meta name="twitter:image" content="assets/favicon.svg">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+
   <header class="site-header">
-    <a class="wordmark" href="index.html">
-      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
-        <rect width="64" height="64" rx="14" fill="currentColor"/>
-        <path d="M32 14c-7.2 0-13 5.6-13 12.7 0 9.4 13 23.3 13 23.3s13-13.9 13-23.3C45 19.6 39.2 14 32 14zm0 17.4a4.7 4.7 0 1 1 0-9.4 4.7 4.7 0 0 1 0 9.4z" fill="var(--bg)"/>
-      </svg>
-      Parkpin AR
-    </a>
     <nav class="nav" aria-label="Primary">
-      <a href="#how">How it works</a>
-      <a href="privacy.html">Privacy</a>
+      <a class="brand" href="./" aria-current="page">
+        <img class="brand-mark" src="assets/favicon.svg" width="28" height="28" alt="">
+        <span>Parkpin AR</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="./" aria-current="page">Home</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+      </ul>
     </nav>
   </header>
 
-  <main>
-    <section class="hero wrap">
-      <div class="hero-copy">
-        <p class="eyebrow">Coming soon to iPhone</p>
-        <h1>Pin your parking spot. Walk back to your car.</h1>
-        <p class="lede">Parkpin AR saves a pin on your iPhone when you park, then guides you back with AR arrows and a live distance. A 2D compass takes over when AR is not available.</p>
-        <p class="soon">Coming soon to iPhone.</p>
-      </div>
-      <div class="hero-art" aria-hidden="true">
-        <svg viewBox="0 0 200 200" fill="none">
-          <circle cx="100" cy="100" r="96" stroke="var(--line)" stroke-width="1.5"/>
-          <circle cx="100" cy="100" r="64" stroke="var(--line)" stroke-width="1.5"/>
-          <path d="M100 28c-18.8 0-34 14.7-34 33.2 0 24.6 34 61 34 61s34-36.4 34-61C134 42.7 118.8 28 100 28zm0 45.5a12.3 12.3 0 1 1 0-24.6 12.3 12.3 0 0 1 0 24.6z" fill="var(--accent)"/>
-          <path d="M100 118v46" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
-          <path d="M100 164l-11-16M100 164l11-16" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-    </section>
+  <main id="main">
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="wordmark">Parkpin AR</p>
+          <h1>Pin the stall. Walk back to the car.</h1>
+          <p class="lede">When you park, Parkpin AR saves a pin on this iPhone. Then it guides you back with AR arrows and a live distance. If AR isn’t available, a 2D compass is used instead.</p>
+          <div class="hero-cta">
+            <p class="soon">Coming soon to iPhone</p>
+            <p class="device-note">For iPhone and iPhone Duo. Requires iOS 27.1 or later.</p>
+          </div>
+        </div>
 
-    <section class="wrap" id="how">
-      <h2 class="section-title">How it works</h2>
-      <ol class="steps">
-        <li class="step">
-          <span class="n">01</span>
-          <h2>Pin my car</h2>
-          <p>When you park, save your spot. You can add an optional photo, a note, or a level and stall number.</p>
-        </li>
-        <li class="step">
-          <span class="n">02</span>
-          <h2>Find my car</h2>
-          <p>Follow AR arrows and a live distance back to the pin. If AR is unavailable, a 2D compass is used instead.</p>
-        </li>
-        <li class="step">
-          <span class="n">03</span>
-          <h2>Back at the car</h2>
-          <p>The guide tells you when you are close or have arrived. The pin stays on this iPhone until you replace or delete it.</p>
-        </li>
-      </ol>
-    </section>
-
-    <section class="wrap" id="features">
-      <h2 class="section-title">What it does</h2>
-      <div class="features">
-        <article class="feature">
-          <h2>AR arrows</h2>
-          <p>A floating arrow aims at your parked car while the distance updates as you walk.</p>
-        </article>
-        <article class="feature">
-          <h2>Compass fallback</h2>
-          <p>A 2D compass is used when AR is not supported, the camera is unavailable, the AR session cannot run, or you prefer it.</p>
-        </article>
-        <article class="feature">
-          <h2>Saved on your iPhone</h2>
-          <p>Pins, photos, and notes stay on the device. There is no account and no server.</p>
-        </article>
-        <article class="feature">
-          <h2>Works offline</h2>
-          <p>Parkpin AR does not need a network connection to save a pin or guide you back to your car.</p>
-        </article>
-        <article class="feature">
-          <h2>Photo, note, and level</h2>
-          <p>Add a picture of the stall, a short note, or a level and spot so the pin is easier to recognize, especially in a garage.</p>
-        </article>
-        <article class="feature">
-          <h2>Built for iPhone</h2>
-          <p>Designed for regular iPhones and the iPhone Duo. Requires iOS 27.1 or later.</p>
-        </article>
+        <figure class="hero-figure phone">
+          <div class="phone-frame">
+            <picture>
+              <source type="image/webp" srcset="assets/screens/home-empty.webp">
+              <img src="assets/screens/home-empty.png" width="402" height="874" alt="Parkpin AR home screen. The title reads Parkpin AR. A card says no parked car is pinned. Pin my car is available; Find my car is unavailable.">
+            </picture>
+          </div>
+          <figcaption class="caption">Home, before a pin is saved</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="wrap">
-      <div class="privacy-preview">
-        <h2>Privacy</h2>
-        <p>Location and the camera are used on your iPhone to pin your car and guide you back. Pins are stored on the device. Parkpin AR does not use an account or analytics.</p>
+    <section class="features" id="features" aria-labelledby="features-title">
+      <div class="wrap">
+        <div class="features-head">
+          <h2 id="features-title">What it does</h2>
+          <p>What is in the app today. Nothing more.</p>
+        </div>
+        <ul class="feature-list">
+          <li>
+            <h3>Pin my car</h3>
+            <p>Saves this iPhone’s location. You can add a level or stall, a short note, and an optional photo of the spot.</p>
+          </li>
+          <li>
+            <h3>Find my car</h3>
+            <p>Follow AR arrows and a live distance back to the pin. A 2D compass is used when AR is not supported, the camera is off, the AR session cannot run, or you prefer it.</p>
+          </li>
+          <li>
+            <h3>Nearby, or arrived</h3>
+            <p>The guide tells you when you are nearby, and when you have arrived.</p>
+          </li>
+          <li>
+            <h3>On this iPhone</h3>
+            <p>The pin, photo, and note stay on the device. There is no account and no server. Parkpin AR does not use a map service or analytics.</p>
+          </li>
+          <li>
+            <h3>Works offline</h3>
+            <p>Pinning a spot and following the guide do not need a network connection.</p>
+          </li>
+          <li>
+            <h3>In a garage</h3>
+            <p>If the location fix is weak, you can still save the pin. A level, stall, or photo is the practical way back to the right spot.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="privacy-band" aria-labelledby="privacy-title">
+      <div class="wrap">
+        <h2 id="privacy-title">Privacy</h2>
+        <p>Location and the camera are used on your iPhone to pin your car and guide you back. Location is requested when you pin or find your car, not when the app opens, and only while the app is in use. Pins are stored on the device. This website does not use cookies, analytics, or other trackers.</p>
         <p><a href="privacy.html">Read the privacy page</a></p>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>Coming soon to iPhone.</p>
-    <div class="footer-links">
-      <a href="privacy.html">Privacy</a>
-      <span>Contact info coming soon</span>
+    <div class="wrap footer-inner">
+      <p>© 2026 Edward Dunn. Parkpin AR for iPhone.</p>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy</a>
+        <span>Contact info coming soon</span>
+      </div>
     </div>
   </footer>
 </body>
